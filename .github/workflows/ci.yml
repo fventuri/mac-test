@@ -18,6 +18,9 @@ jobs:
         run: |
           curl -s -S -O "$SDRPLAY_SOFTWARE_DOWNLOADS/$SDRPLAY_API_FILE_MACOS"
           sudo installer -pkg "$SDRPLAY_API_FILE_MACOS" -target /
+      - name: Check SDRplay API install
+        run: |
+          ls -l /usr/local/lib
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Build

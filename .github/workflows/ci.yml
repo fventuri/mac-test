@@ -30,5 +30,7 @@ jobs:
       - name: Check things
         run: |
           otool -L sdrplay_api_version
+          strings -a sdrplay_api_version | grep sdrplay_api
+          strings -a sdrplay_api_version | grep '/usr/local'
       - name: Run
         run: ./sdrplay_api_version

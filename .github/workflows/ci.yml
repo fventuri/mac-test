@@ -21,13 +21,14 @@ jobs:
       - name: Check SDRplay API install
         run: |
           ls -l /usr/local/lib
+          otool -T -R -M /usr/loca/lib/libsdrplay_api.so
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Build
-        #run: cc -o sdrplay_api_version sdrplay_api_version.c -lsdrplay_api
-        run: cc -o sdrplay_api_version sdrplay_api_version.c /Library/SDRplayAPI/3.15.0/lib/libsdrplay_api.so.3.15
+        run: cc -o sdrplay_api_version sdrplay_api_version.c -lsdrplay_api
+        #run: cc -o sdrplay_api_version sdrplay_api_version.c /Library/SDRplayAPI/3.15.0/lib/libsdrplay_api.so.3.15
       - name: Check things
         run: |
-          otool -L sdrplay_api_version
+          otool -l -v sdrplay_api_version
       - name: Run
         run: ./sdrplay_api_version

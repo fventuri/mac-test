@@ -38,8 +38,8 @@ jobs:
           otool -L sdrplay_api_version
           echo '--------------------------------------'
           otool -l sdrplay_api_version
-      #- name: Run
-      #  run: ./sdrplay_api_version
+      - name: Run
+        run: ./sdrplay_api_version
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')

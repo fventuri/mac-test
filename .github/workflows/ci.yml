@@ -30,7 +30,12 @@ jobs:
       - name: Check things
         run: |
           otool -L sdrplay_api_version
-          strings -a sdrplay_api_version | grep sdrplay_api
-          strings -a sdrplay_api_version | grep '/usr/local'
-      - name: Run
-        run: ./sdrplay_api_version
+      #- name: Run
+      #  run: ./sdrplay_api_version
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            sdrplay_api_version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

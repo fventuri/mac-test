@@ -28,7 +28,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Build
-        run: cc -v -o sdrplay_api_version sdrplay_api_version.c -lsdrplay_api -rpath /usr/local/lib
+        #run: cc -v -o sdrplay_api_version sdrplay_api_version.c -lsdrplay_api -rpath /usr/local/lib
+        run: cc -v -o sdrplay_api_version sdrplay_api_version.c -rpath /usr/local/lib -lsdrplay_api
         #run: cc -o sdrplay_api_version sdrplay_api_version.c /Library/SDRplayAPI/3.15.0/lib/libsdrplay_api.so.3.15
       - name: Check things
         run: |

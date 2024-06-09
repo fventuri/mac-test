@@ -33,6 +33,8 @@ jobs:
       - name: Check things
         run: |
           otool -L sdrplay_api_version
+          echo '--------------------------------------'
+          otool -l sdrplay_api_version
       #- name: Run
       #  run: ./sdrplay_api_version
       - name: Release

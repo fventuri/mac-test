@@ -24,7 +24,7 @@ jobs:
           echo '--------------------------------------'
           otool -L /usr/local/lib/libsdrplay_api.so
           echo '--------------------------------------'
-          otool -L /Library/SDRplayAPI/3.15.0/lib/libsdrplay_api.so.3.15
+          otool -L /Library/SDRplayAPI/3.15.1/lib/libsdrplay_api.so.3.15
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Build
@@ -32,7 +32,7 @@ jobs:
         run: |
           cc -v -o sdrplay_api_version sdrplay_api_version.c -rpath /usr/local/lib -lsdrplay_api
           install_name_tool -change libsdrplay_api.so.3 @rpath/libsdrplay_api.so.3 sdrplay_api_version
-        #run: cc -o sdrplay_api_version sdrplay_api_version.c /Library/SDRplayAPI/3.15.0/lib/libsdrplay_api.so.3.15
+        #run: cc -o sdrplay_api_version sdrplay_api_version.c /Library/SDRplayAPI/3.15.1/lib/libsdrplay_api.so.3.15
       - name: Check things
         run: |
           otool -L sdrplay_api_version
